@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" *ngIf="arrayPost && arrayPost.length > 0">
+      <h2>Mes posts</h2>
+      <ul class="list-group">
+        <app-post-list-item *ngFor="let post of arrayPost; let i = index"
+                            [title]="post.title"
+                            [content]="post.content"
+                            [loveIts]="post.loveIts"
+                            [index]="i">
+        </app-post-list-item>
+      </ul>
+      <a routerLink="/new" class="btn btn-primary">Créer un nouveau post</a>
+    </div>
+    <div class="col-12" *ngIf="!arrayPost || arrayPost.length === 0">
+      <h2>Aucun post est enregistré</h2>
+      <a routerLink="/new" class="btn btn-primary">Créer un nouveau post</a>
+    </div>
+  </div>
+</div>
